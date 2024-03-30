@@ -11,7 +11,7 @@ import itertools
 base_url = "https://identiverse.com"
 
 # The URL of the agenda page
-agenda_url = base_url + "/idv23/agenda/"
+agenda_url = base_url + "/idv24/sessions/"
 
 # Create a new requests session
 s = requests.Session()
@@ -26,7 +26,7 @@ header = ['id', 'url', 'slug', 'product_name', 'full_description', 'session_loca
           'start_time', 'end_time', 'duration_hr:min:sec', 'date', 'product_type', 'topic', 'speaker_count']
 
 # Open the CSV file for writing
-with open('Identiverse2023_Agenda.csv', 'w', newline='', encoding='utf-8') as f:
+with open('Identiverse2023_Agenda2024.csv', 'w', newline='', encoding='utf-8') as f:
     writer = csv.writer(f)
     writer.writerow(header)  # write the header
 
@@ -385,7 +385,7 @@ with open('Identiverse2023_Agenda.csv', 'w', newline='', encoding='utf-8') as f:
         print(f"Failed to fetch page, status code: {response.status_code}")
 
 # Rewrite the CSV file with the updated header
-with open('Identiverse2023_Agenda.csv', 'r', encoding='utf-8') as read_obj, open('Identiverse2023_Agenda_temp.csv', 'w', newline='', encoding='utf-8') as write_obj:
+with open('Identiverse2023_Agenda2024.csv', 'r', encoding='utf-8') as read_obj, open('Identiverse2023_Agenda_temp2024.csv', 'w', newline='', encoding='utf-8') as write_obj:
     csv_reader = csv.reader(read_obj)
     csv_writer = csv.writer(write_obj)
 
@@ -398,5 +398,5 @@ with open('Identiverse2023_Agenda.csv', 'r', encoding='utf-8') as read_obj, open
         csv_writer.writerow(row)
 
 # Replace the original CSV file with the temporary one
-os.remove('Identiverse2023_Agenda.csv')
-os.rename('Identiverse2023_Agenda_temp.csv', 'Identiverse2023_Agenda.csv')
+os.remove('Identiverse2023_Agenda2024.csv')
+os.rename('Identiverse2023_Agenda_temp2024.csv', 'Identiverse2023_Agenda2024.csv')
